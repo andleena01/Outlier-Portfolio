@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Andleena Ameer — Software Engineer, AI Trainer and Coding Specialist.">
+<title>Andleena Ameer | Digital Portfolio</title>
+<style>
+:root {
+  --navy: #0b1530;
+  --blue: #4f8cff;
+  --cyan: #69d8e8;
+  --ink: #1b2942;
+  --muted: #64728a;
+  --line: #dce5f3;
+  --pale: #f3f7ff;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  padding: 18px;
+  background: #e8eef8;
+  color: var(--ink);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  line-height: 1.7;
+}
+a { color: inherit; }
+.outer {
+  max-width: 1150px;
+  margin: auto;
+  padding: 9px;
+  border-radius: 22px;
+  background: linear-gradient(135deg,#8cb5ff,#d9e7ff,#8ad5e4);
+  box-shadow: 0 20px 65px #10234b20;
+}
+.frame {
+  background: white;
+  border: 2px solid var(--navy);
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+}
+.frame::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid #bdcce4;
+  border-radius: 9px;
+  pointer-events: none;
+  z-index: 5;
+}
+nav, header, section, footer { position: relative; z-index: 1; }
+nav {
+  padding: 20px 38px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  border-bottom: 1px solid var(--line);
+}
+.logo {
+  color: var(--navy);
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+.logo span { color: var(--blue); }
+.navlinks { display: flex; flex-wrap: wrap; gap: 15px; }
+.navlinks a {
+  text-decoration: none;
+  font-size: 13px;
+  color: #475771;
+  font-weight: 700;
+}
+.navlinks a:hover { color: var(--blue); }
+.hero {
+  padding: 60px 45px;
+  display: grid;
+  grid-template-columns: 1.5fr .8fr;
+  gap: 35px;
+  align-items: center;
+  color: white;
+  background:
+    radial-gradient(circle at 90% 10%,#2a528d,transparent 35%),
+    linear-gradient(125deg,#0b1530,#102b52 75%,#105064);
+}
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--cyan);
+}
+h1 {
+  font-size: clamp(43px,7vw,76px);
+  line-height: 1.02;
+  letter-spacing: -3px;
+  margin: 18px 0 15px;
+}
+.hero h2 {
+  color: #dce8ff;
+  font-size: 18px;
+  line-height: 1.5;
+}
+.hero p { color: #d1def5; max-width: 620px; }
+.buttons { display: flex; gap: 11px; flex-wrap: wrap; margin-top: 25px; }
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border: 1px solid #ffffff65;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.btn-primary { background: var(--blue); border-color: var(--blue); color: white; }
+.btn-light { background: white; border-color: var(--line); color: var(--navy); }
+.profile {
+  padding: 24px;
+  background: #ffffff0b;
+  border: 1px solid #ffffff55;
+  border-radius: 15px;
+  overflow-wrap: anywhere;
+}
+.monogram {
+  width: 75px;
+  height: 75px;
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(140deg,var(--cyan),var(--blue));
+  color: var(--navy);
+  font-size: 27px;
+  font-weight: 900;
+  margin-bottom: 18px;
+}
+.profile h3 { margin: 0; }
+.profile small { color: #c6d7f4; }
+.profile hr { border: 0; border-top: 1px solid #ffffff35; margin: 17px 0; }
+.meta { margin: 13px 0; color: #e6efff; font-size: 13px; }
+.meta b {
+  display: block;
+  color: var(--cyan);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+section { padding: 42px 45px; border-bottom: 1px solid var(--line); }
+.section-label {
+  color: #3476dc;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.section-title {
+  font-size: 28px;
+  line-height: 1.25;
+  color: var(--navy);
+  margin: 6px 0 20px;
+}
+.intro { color: #465670; margin: 0; }
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: end;
+  margin-bottom: 22px;
+}
+.section-head .section-title { margin-bottom: 0; }
+.section-head p { max-width: 420px; font-size: 13px; color: var(--muted); }
+.grid { display: grid; gap: 15px; }
+.skills { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.projects { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.card {
+  padding: 20px;
+  background: linear-gradient(150deg,#fff,#f8faff);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.card h3 { color: var(--navy); font-size: 16px; line-height: 1.4; margin: 0 0 10px; }
+.card p { color: #586780; font-size: 13px; margin: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 13px; }
+.tag {
+  background: #eaf1ff;
+  border: 1px solid #d6e3ff;
+  color: #2b5595;
+  padding: 4px 8px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.experience { border-left: 4px solid var(--blue); }
+.role { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.date {
+  padding: 4px 9px;
+  height: fit-content;
+  background: #eaf1ff;
+  border-radius: 6px;
+  color: #356cc1;
+  font-size: 12px;
+  font-weight: 800;
+}
+.company { color: var(--muted); font-size: 13px; font-weight: 700; }
+ul { padding-left: 20px; color: #485872; font-size: 13px; }
+li { margin: 7px 0; }
+.edu {
+  display: flex;
+  gap: 15px;
+  align-items: start;
+}
+.edu-icon {
+  background: #eaf1ff;
+  color: #2d66bd;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 900;
+}
+.muted { color: var(--muted); font-size: 13px; margin: 4px 0; }
+.certs { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+.cert {
+  background: #fbfcff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 12px;
+  color: #43536d;
+}
+.cert::before { content: "✦ "; color: #3978e8; }
+.strengths { grid-template-columns: repeat(4,minmax(0,1fr)); }
+.strength {
+  padding: 13px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #fbfcff;
+  color: #475771;
+  font-size: 12px;
+}
+.interests { display: flex; flex-wrap: wrap; gap: 9px; }
+.interest {
+  padding: 8px 11px;
+  border-radius: 8px;
+  background: #f2f7ff;
+  border: 1px solid #d7e4fb;
+  color: #2b4f86;
+  font-size: 12px;
+  font-weight: 700;
+}
+.note {
+  margin-top: 15px;
+  padding: 12px;
+  border-left: 3px solid #9eb8e1;
+  background: #f4f7fc;
+  border-radius: 4px;
+  color: #62718a;
+  font-size: 12px;
+}
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  padding: 22px;
+  background: var(--pale);
+  border: 1px solid #d5e3fa;
+  border-radius: 12px;
+}
+.contact b {
+  display: block;
+  color: #627795;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.contact a, .contact span {
+  color: #1a3a68;
+  font-size: 13px;
+  font-weight: 750;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+footer {
+  padding: 22px 45px;
+  background: var(--navy);
+  color: #c6d6ef;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 11px;
+}
+footer strong { color: white; }
+@media(max-width:800px) {
+  body { padding: 7px; }
+  .hero { grid-template-columns: 1fr; padding: 35px 25px; }
+  section { padding: 30px 25px; }
+  nav { padding: 18px 25px; align-items: flex-start; flex-direction: column; }
+  .skills { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .strengths { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .section-head { display: block; }
+  .section-head p { margin-bottom: 0; }
+  footer { padding: 20px 25px; }
+}
+@media(max-width:520px) {
+  .skills,.projects,.certs,.contact { grid-template-columns: 1fr; }
+  .navlinks { gap: 10px; }
+  .navlinks a { font-size: 11px; }
+  section { padding: 26px 20px; }
+  .section-title { font-size: 24px; }
+}
+@media print {
+  body { padding: 0; background: white; }
+  .outer { padding: 0; background: white; box-shadow: none; }
+  .frame { border-radius: 0; }
+  .frame::before { inset: 5px; }
+  nav { padding: 12px 25px; }
+  .navlinks { display: none; }
+  .hero { padding: 27px; break-inside: avoid; }
+  section { padding: 22px 27px; }
+  .card { break-inside: avoid; }
+  .buttons .btn { display: none; }
+  footer { padding: 15px 27px; }
+}
+</style>
+</head>
+<body>
+<div class="outer"><div class="frame">
+
+<nav>
+  <div class="logo">ANDLEENA <span>AMEER</span></div>
+  <div class="navlinks">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div>
+    <div class="eyebrow">Professional Portfolio · Remote Opportunities</div>
+    <h1>ANDLEENA<br>AMEER</h1>
+    <h2>Software Engineer | AI Trainer | Coding &amp; Language Specialist</h2>
+    <p>Combining software engineering expertise, analytical thinking, and structured evaluation to deliver accurate technical work and support high-quality AI training, code assessment, and data quality initiatives.</p>
+    <div class="buttons">
+      <a class="btn btn-primary" href="#contact">Contact Me</a>
+      <a class="btn" href="#projects">Explore Projects ↓</a>
+    </div>
+  </div>
+  <aside class="profile">
+    <div class="monogram">AA</div>
+    <h3>Professional Profile</h3>
+    <small>Software · AI Evaluation · Data Quality</small>
+    <hr>
+    <div class="meta"><b>Location</b>India</div>
+    <div class="meta"><b>Availability</b>Open to remote opportunities</div>
+    <div class="meta"><b>Phone</b>+91 9354215290</div>
+    <div class="meta"><b>Email</b>andleenaameer5601@gmail.com</div>
+  </aside>
+</header>
+
+<section id="about">
+  <div class="section-label">01 / About</div>
+  <h2 class="section-title">Professional Summary</h2>
+  <p class="intro">Software Engineer with 1+ years of professional experience in software engineering, supported by a strong foundation in programming, backend development, databases, debugging, and analytical problem-solving. Skilled in breaking down complex problems, reviewing technical outputs, identifying errors and inconsistencies, and communicating findings clearly. Interested in applying this technical and analytical expertise to AI training and evaluation, code-generation assessment, response quality review, data annotation, research, and content quality projects. Committed to accuracy, clear reasoning, careful instruction-following, and consistent quality across remote, project-based assignments.</p>
+</section>
+
+<section id="skills">
+  <div class="section-head">
+    <div><div class="section-label">02 / Capabilities</div><h2 class="section-title">Core Skills</h2></div>
+    <p>Programming, technical quality evaluation, research, and communication.</p>
+  </div>
+  <div class="grid skills">
+    <article class="card"><h3>Programming</h3><div class="tags"><span class="tag">Java</span><span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">C++</span><span class="tag">DSA</span><span class="tag">OOP</span></div></article>
+    <article class="card"><h3>Software Engineering</h3><div class="tags"><span class="tag">Spring Boot</span><span class="tag">REST APIs</span><span class="tag">Microservices</span><span class="tag">Debugging</span><span class="tag">Software Testing</span><span class="tag">API Testing</span><span class="tag">Error Analysis</span></div></article>
+    <article class="card"><h3>Databases &amp; Data</h3><div class="tags"><span class="tag">SQL</span><span class="tag">MySQL</span><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">Data Validation</span><span class="tag">Data Cleaning</span><span class="tag">Transformation</span></div></article>
+    <article class="card"><h3>AI Training &amp; Evaluation</h3><div class="tags"><span class="tag">AI Response Evaluation</span><span class="tag">Code Review</span><span class="tag">Output Quality</span><span class="tag">Rubric-Based Evaluation</span><span class="tag">Instruction Following</span><span class="tag">Error Identification</span><span class="tag">Logical Reasoning</span></div></article>
+    <article class="card"><h3>Writing &amp; Language</h3><div class="tags"><span class="tag">English Writing</span><span class="tag">Proofreading</span><span class="tag">Grammar Checking</span><span class="tag">Content Editing</span><span class="tag">Technical Writing</span><span class="tag">Summarization</span><span class="tag">Copywriting Fundamentals</span></div></article>
+    <article class="card"><h3>Research &amp; Tools</h3><div class="tags"><span class="tag">Information Analysis</span><span class="tag">Fact Checking</span><span class="tag">Critical Thinking</span><span class="tag">Pattern Recognition</span><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Postman</span><span class="tag">Linux</span><span class="tag">Docker</span><span class="tag">AWS Fundamentals</span><span class="tag">Excel</span><span class="tag">Power BI</span></div></article>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-label">03 / Experience</div>
+  <h2 class="section-title">Professional Experience</h2>
+  <article class="card experience">
+    <div class="role"><h3>Software Engineer</h3><span class="date">August 2025 – Present</span></div>
+    <div class="company">Infinity Enterprises</div>
+    <ul>
+      <li>Apply programming, debugging, and structured problem-solving skills to software engineering tasks, with a focus on understanding application behavior and resolving technical issues.</li>
+      <li>Analyze errors and unexpected results systematically, identify potential causes, and support the reliability and quality of software applications.</li>
+      <li>Work with APIs, databases, testing workflows, and technical documentation as required by assigned responsibilities.</li>
+      <li>Interpret technical requirements, evaluate solutions against expected behavior, and focus on producing accurate, maintainable, and well-documented deliverables.</li>
+      <li>Use logical reasoning and attention to detail to review technical information, identify inconsistencies, and communicate findings clearly.</li>
+    </ul>
+  </article>
+</section>
+
+<section id="projects">
+  <div class="section-head">
+    <div><div class="section-label">04 / Selected Work</div><h2 class="section-title">Projects &amp; Technical Exploration</h2></div>
+    <p>Workflows spanning reliability, AI evaluation, machine learning, and data quality.</p>
+  </div>
+  <div class="grid projects">
+    <article class="card">
+      <div class="section-label">Project 01</div>
+      <h3>Distributed Systems Observability and Reliability Platform</h3>
+      <p>Designed a monitoring and troubleshooting workflow for distributed services using health checks, application logs, performance metrics, latency tracking, and failure analysis. Developed a reliability-analysis approach to investigate service errors, identify potential root causes, and evaluate API availability and response-time behavior.</p>
+      <div class="tags"><span class="tag">Observability</span><span class="tag">Logs &amp; Metrics</span><span class="tag">API Reliability</span><span class="tag">Root-Cause Analysis</span></div>
+    </article>
+    <article class="card">
+      <div class="section-label">Project 02</div>
+      <h3>AI-Generated Code Evaluation and Benchmarking Framework</h3>
+      <p>Developed an evaluation framework concept for assessing programming solutions against correctness, edge cases, algorithmic efficiency, code quality, and task-specific requirements. Established evaluation criteria using test cases, error categorization, and comparative analysis.</p>
+      <div class="tags"><span class="tag">AI Evaluation</span><span class="tag">Code Review</span><span class="tag">Test Cases</span><span class="tag">Benchmarking</span></div>
+    </article>
+    <article class="card">
+      <div class="section-label">Project 03</div>
+      <h3>Machine Learning-Based Fraud Detection and Risk Analytics</h3>
+      <p>Designed a fraud analytics workflow covering data preprocessing, feature engineering, model evaluation, risk classification, and suspicious-transaction analysis. Evaluated model performance using precision, recall, confusion-matrix analysis, and error investigation.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Data Preprocessing</span><span class="tag">Model Evaluation</span><span class="tag">Risk Analytics</span></div>
+    </article>
+    <article class="card">
+      <div class="section-label">Project 04</div>
+      <h3>Automated Data Engineering and Quality Validation Pipeline</h3>
+      <p>Designed a data-processing workflow using Python and SQL for data ingestion, cleaning, transformation, validation, and structured storage. Incorporated schema validation, duplicate detection, missing-value analysis, and data-quality checks.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Data Pipelines</span><span class="tag">Quality Assurance</span></div>
+    </article>
+  </div>
+</section>
+
+<section id="education">
+  <div class="section-label">05 / Education</div>
+  <h2 class="section-title">Education &amp; Certifications</h2>
+  <article class="card edu">
+    <div class="edu-icon">B.Tech</div>
+    <div><h3>Bachelor of Technology (B.Tech)</h3><p class="muted"><b>Noida Institute of Engineering and Technology (NIET)</b></p><p class="muted">October 2022 – May 2026</p></div>
+  </article>
+  <h3 style="margin-top:27px;color:var(--navy)">Certifications</h3>
+  <div class="certs">
+    <div class="cert">Cisco Networking Academy — CCNA: Enterprise Networking, Security, and Automation</div>
+    <div class="cert">Cisco Networking Academy — CCNA: Switching, Routing, and Wireless Essentials</div>
+    <div class="cert">Cisco Networking Academy — CCNA: Introduction to Networks</div>
+    <div class="cert">Cisco Networking Academy — Introduction to Cybersecurity</div>
+    <div class="cert">Cisco Networking Academy — Python Essentials 1 and 2</div>
+    <div class="cert">Infosys Springboard — Introduction to Cloud Computing</div>
+    <div class="cert">Infosys Springboard — Data Analytics</div>
+    <div class="cert">InternPE — Java Programming</div>
+  </div>
+</section>
+
+<section id="strengths">
+  <div class="section-label">06 / Work Style</div>
+  <h2 class="section-title">Additional Strengths</h2>
+  <div class="grid strengths">
+    <div class="strength">Analytical and logical reasoning</div>
+    <div class="strength">Clear written communication</div>
+    <div class="strength">Attention to detail and quality checking</div>
+    <div class="strength">Following detailed instructions and evaluation criteria</div>
+    <div class="strength">Identifying inconsistencies and explaining errors</div>
+    <div class="strength">Structured research and information summarization</div>
+    <div class="strength">Adaptability across technical and content-oriented tasks</div>
+    <div class="strength">Time management and independent task execution</div>
+  </div>
+</section>
+
+<section id="interests">
+  <div class="section-label">07 / Focus Areas</div>
+  <h2 class="section-title">Project Interests</h2>
+  <div class="interests">
+    <span class="interest">Software Engineering</span><span class="interest">Coding &amp; Debugging</span>
+    <span class="interest">AI Training &amp; Evaluation</span><span class="interest">AI Response Assessment</span>
+    <span class="interest">Code Review</span><span class="interest">Data Annotation</span>
+    <span class="interest">Data Validation</span><span class="interest">Research</span>
+    <span class="interest">Summarization</span><span class="interest">Proofreading</span>
+    <span class="interest">Content Writing</span><span class="interest">Copywriting</span>
+    <span class="interest">Language Evaluation</span><span class="interest">Translation for proficient language pairs</span>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-label">08 / Let's Connect</div>
+  <h2 class="section-title">Contact &amp; Collaboration</h2>
+  <p class="intro">Open to remote, flexible, and project-based opportunities across software, AI evaluation, data, and content quality.</p>
+  <div class="contact">
+    <div><b>Email</b><a href="mailto:andleenaameer5601@gmail.com">andleenaameer5601@gmail.com</a></div>
+    <div><b>Phone</b><a href="tel:+919354215290">+91 9354215290</a></div>
+    <div><b>LinkedIn</b><span>linkedin.com/in/andleena-ameer-829a82300/</span></div>
+    <div><b>Location / Preference</b><span>India · Open to Remote Opportunities</span></div>
+  </div>
+  <div class="buttons">
+    <a class="btn btn-primary" href="mailto:andleenaameer5601@gmail.com?subject=Remote%20Project%20Opportunity">Discuss a Project</a>
+    <button class="btn btn-light" onclick="window.print()">Print / Save as PDF</button>
+  </div>
+</section>
+
+<footer>
+  <span><strong>ANDLEENA AMEER</strong> · Professional Portfolio</span>
+  <span>Software Engineering · AI Training · Coding &amp; Language Quality</span>
+</footer>
+
+</div></div>
+</body>
+</html>
